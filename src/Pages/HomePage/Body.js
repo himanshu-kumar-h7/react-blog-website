@@ -8,6 +8,7 @@ import Footer from '../../components/Footer/Footer'
 import NavigationBar from '../../components/NavBar/NavigationBar'
 import db from '../../utils/db.json'
 
+
 const initialUsers = {
   loading: true,
   users: [],
@@ -54,7 +55,7 @@ function Body({match}) {
   return (
     <div>
       <Container>
-        {/* It is usefull when we fetch data from server */}
+        
         {state.error !== '' ? (
           <h1 className="text-center">{state.error}</h1>
         ) : (
@@ -69,10 +70,18 @@ function Body({match}) {
           {state.users.map(user => {
             return (
               <Col key={user.id} md={4} sm={6} xs={12}>
-                <Card
-                  name={`${user.firstName} ${user.lastName}`}
+                <Card 
+                name={`${user.firstName} ${user.lastName}`}
                   id={user.id}
+                  img={user.numLikes}
+                  
+                  
                 />
+                 
+                
+                  
+                  
+                
               </Col>
             )
           })}

@@ -1,7 +1,16 @@
-.navBar1{
-    /* background-color: black; */
-    /* color: white; */
-    font-weight: bold;
-    display: block;
-    padding-bottom: 100px;
+.navBar1 {
+  position: static;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  /* padding: 0.1rem 1.5rem; */
+  height: 4rem;
+  display: flex;
+  align-items: stretch;
+  list-style: none;
+  
 }

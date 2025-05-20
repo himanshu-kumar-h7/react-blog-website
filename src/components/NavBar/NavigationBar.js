@@ -10,40 +10,40 @@ import {
 } from 'reactstrap'
 import './NavigationBar.css'
 import {Link} from 'react-router-dom'
+import { useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 
 // import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 // import App from "../../App.js"
 
 function NavigationBar() {
-  let pathName = useMemo(
-    () => window.location.pathname,
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [window.location.pathname],
-  )
+  let location = useLocation()
+  let pathName = location.pathname;
 
   const [isOpen, setIsOpen] = useState(false)
 
-  const toggle = useCallback(() => setIsOpen(!isOpen), [isOpen])
+  const toggle = useCallback(() => setIsOpen(po => !po), [])
 
   return (
-    <div className="navBar1">
+    <div className="navBar1" id="Navigationid"> 
       <Navbar
-        color="dark"
-        dark
-        className="fixed-top d-flex justify-content-between"
-        expand="md"
+        className=" d-flex justify-content-fixed"
+        expand="sm"
+        
       >
-        <NavItem>
-          <Link to="/" className="text-white">
-            JSOM
+
+        
+          <NavItem >
+          <Link to="/" className="text-white" id="sdws23" >
+            🌞 Accuweather
           </Link>
         </NavItem>
+        
         {/* <NavLink className=" text-white" to="/">
           {!isNaN(pathName.split('/')[1]) ? 'Authors' : pathName.split('/')[1]}
         </NavLink> */}
         <NavbarToggler onClick={toggle} style={{width: 'auto'}} />
         <Collapse
-          className=""
+          className="collapse1"
           isOpen={isOpen}
           navbar
           style={{
@@ -75,7 +75,7 @@ function NavigationBar() {
                   }`}
                 >
                   {' '}
-                  MostLikedPost
+                  ❤️
                 </p>
               </Link>
             </NavItem>
@@ -90,7 +90,7 @@ function NavigationBar() {
                   }`}
                 >
                   {' '}
-                  MostCommentPost
+                  💬
                 </p>
               </Link>
             </NavItem>

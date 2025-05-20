@@ -16,7 +16,7 @@ import Footer from './components/Footer/Footer'
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: '#e5eaf5' }}>
       <Router>
         <NavigationBar />
         <Switch>
