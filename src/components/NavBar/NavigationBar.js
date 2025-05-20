@@ -24,7 +24,7 @@ function NavigationBar() {
   const toggle = useCallback(() => setIsOpen(po => !po), [])
 
   return (
-    <div className="navBar1" id="Navigationid"> 
+    <div className="navBar1" id="Navigationid" style={{display: 'flex', flexDirection: 'column', justifyContent:'space-around'}}> 
       <Navbar
         className=" d-flex justify-content-fixed"
         expand="sm"
