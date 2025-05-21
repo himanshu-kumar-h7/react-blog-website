@@ -14,8 +14,8 @@ function Profile({match}) {
   const [activeButton, setActiveButton] = useState('') // for active Button
 
   // for fetching Post from server
-  const fetchPost = useCallback(async id => {
-    let posts = db.posts.filter(post => post.authorId === parseInt(id))
+  const fetchPost = useCallback( id => {
+    let posts = db.posts.filter(post => post.authorId === Number(id))
 
     setPosts(posts)
   }, [])
@@ -120,7 +120,7 @@ function Profile({match}) {
       <AuthorCard author={author} />
 
       <div className="container">
-        <h3 className="pt-4 pl-4 pb-3">Posts</h3>
+        <h3 className="a" style={{fontFamily: 'monospace', color: 'crimson'}}><b>Drafted Posts</b></h3>
 
         {/* Filter Header */}
         <FilterHeader

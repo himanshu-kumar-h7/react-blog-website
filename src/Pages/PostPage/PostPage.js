@@ -4,6 +4,7 @@ import NavigationBar from '../../components/NavBar/NavigationBar'
 import './PostPage.css'
 import Comment from '../../components/comments/Comment'
 import db from '../../utils/db.json'
+import Image from '../../Images/images3.jpeg'
 function PostPage({match}) {
   const [post, setPost] = useState({})
   const [comments, setComments] = useState([])
@@ -20,6 +21,7 @@ function PostPage({match}) {
     const data = db.comments.filter(
       coment => parseInt(coment.postId) === parseInt(id),
     )
+    
     console.log('After fetch comment ', data)
     setLoading(false)
     setComments([...data])
@@ -34,7 +36,7 @@ function PostPage({match}) {
   }, [fetchComments, match.params.postId])
 
   return (
-    <div>
+    <div >
       {post.title === undefined ? (
         <h1>Loading....</h1>
       ) : (
@@ -48,7 +50,7 @@ function PostPage({match}) {
       )}
 
       <h4 className="mt-4 text-center">Comments</h4>
-      <div className="comment-box d-flex justify-content-center">
+      <div className="comment-box d-flex justify-content-center" style={{backgroundColor: 'yellow'}}>
         <br></br>
         <ul className="list-unstyled m-4 ">
           {loading ? (

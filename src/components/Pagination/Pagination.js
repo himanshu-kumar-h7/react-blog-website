@@ -1,12 +1,26 @@
 import React, {memo} from 'react'
 import {Link} from 'react-router-dom'
+import Db from 'src/utils/db.json'
 function Pagination(props) {
   return (
     <nav aria-label="Page navigation example">
       <ul className="pagination justify-content-center pagination-lg p-4">
+
+        <li className="page-item">
+          <Link
+            className="page-link"
+            to={`/${
+              1
+            }`}
+          >
+            Reset to min
+          </Link>
+          
+        </li>
+        
         <li
           className={`page-item ${
-            props.pageNo === 1 || props.pageNo === 0 || isNaN(props.pageNo)
+            props.pageNo === 1 || props.pageNo === 1 || isNaN(props.pageNo)
               ? 'disabled'
               : ''
           }`}
@@ -34,6 +48,18 @@ function Pagination(props) {
           >
             Next
           </Link>
+          
+        </li>
+        <li className="page-item">
+          <Link
+            className="page-link"
+            to={`/${
+              isNaN(props.pageNo) && 100
+            }`}
+          >
+            Reset to max
+          </Link>
+          
         </li>
       </ul>
     </nav>

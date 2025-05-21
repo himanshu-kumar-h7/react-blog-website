@@ -9,7 +9,7 @@ function Card(props) {
   const[hover, setHover] = useState(false)
 
   const buttonStyle = {
-    backgroundColor: setHover ? 'red' : 'green',
+    backgroundColor: hover ? '#0530ad' : '#0071c5',
     color: 'white',
   fontWeight: 'bold',
   transition: 'backgroundColor 0.3s ease',
@@ -34,22 +34,23 @@ function Card(props) {
  
     >
       
-      <img
+      {/* <img
         className="card-img-top"
         
         alt="Error loading Image"
         style={{color: "red", fontSize: '0.6rem'}}
-      />
+      /> */}
       <div className="card-body text-center">
         <h5 className="abc" style={{color: 'white', fontWeight: "bolder", fontFamily: "cursive", backgroundColor: '#478559'}}><b>{props.name}</b></h5>
         <Link
           className="btn btn-primary text-white font-weight-bold"
           to={`/Profile/${props.id}`}
           id={props.id}
-          // style={{backgroundColor: "#66a3ff" }}
+          
           style={buttonStyle}
           onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
+            
             
           
         >

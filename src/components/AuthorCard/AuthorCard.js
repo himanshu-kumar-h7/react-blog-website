@@ -14,9 +14,9 @@ function AuthorCard({author}) {
       <h1>{author.firstName + ' ' + author.lastName}</h1>
       <p className="title text-secondary"> <span style={{color: "white"}}>Call : {author.phone}</span></p>
       <div style={{display: 'flex', flexDirection: 'row', justifyContent:'space-around'}}>
-        <p>POSTS : {author.numPosts}</p>
-      <p>LIKES : {author.numLikes}</p>
-      <p>COMMENTS : {author.numComments}</p>
+        <p>📸 : {author.numPosts}</p>
+      <p>❤️ : {author.numLikes}</p>
+      <p>💬 : {author.numComments}</p>
       </div>
       
     </div>

@@ -1,14 +1,14 @@
 import React, {memo} from 'react'
-import Post from '../ShortPost/ShortPost'
+import ShortPost from '../ShortPost/ShortPost'
 function UserPostList({posts}) {
   return (
     <ul className="list-group">
-      {posts.length === 0 ? (
+      {(posts.length === 0) ? (
         <h1 className="text-center">loading.... </h1>
       ) : (
         posts.map(post => {
           return (
-            <Post
+            <ShortPost
               key={post.id}
               title={post.title}
               like={post.numLikes}
