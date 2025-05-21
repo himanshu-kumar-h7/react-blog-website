@@ -1,7 +1,23 @@
 import React, {memo} from 'react'
 import {Link} from 'react-router-dom'
-import Db from 'src/utils/db.json'
+import db from '../../utils/db.json'
+import { useState } from 'react'
+import { useEffect } from 'react'
 function Pagination(props) {
+
+
+const [count, setCount] = useState(0)
+
+// useEffect( () => {
+  
+//   const data = db.authors.id;
+//   console.log(data)
+  
+  
+  
+
+// },[])
+
   return (
     <nav aria-label="Page navigation example">
       <ul className="pagination justify-content-center pagination-lg p-4">
@@ -46,7 +62,7 @@ function Pagination(props) {
               isNaN(props.pageNo) || props.pageNo === 0 ? '2' : props.pageNo + 1
             }`}
           >
-            Next
+            next
           </Link>
           
         </li>
@@ -54,10 +70,10 @@ function Pagination(props) {
           <Link
             className="page-link"
             to={`/${
-              isNaN(props.pageNo) && 100
+             9
             }`}
           >
-            Reset to max
+            {}
           </Link>
           
         </li>
