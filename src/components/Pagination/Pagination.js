@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import db from '../../utils/db.json'
 import { useState } from 'react'
 import { useEffect } from 'react'
+
 function Pagination(props) {
 
 
@@ -15,15 +16,13 @@ useEffect(() => {
 },[])
 
 useEffect(() => {
-console.log("Count.length ", count.length)
-},[count])
+console.log(props.pageItems)
+},[])
 
 useEffect(() => {
   setNumber(count)
 })
-useEffect(() => {
-  console.log("Number is " + count)
-})
+
   return (
     <nav aria-label="Page navigation example">
       <ul className="pagination justify-content-center pagination-lg p-4">
@@ -42,7 +41,7 @@ useEffect(() => {
         
         <li
           className={`page-item ${
-            props.pageNo === 1 || props.pageNo === 1 || isNaN(props.pageNo)
+            props.pageNo === 1 || isNaN(props.pageNo)
               ? 'disabled'
               : ''
           }`}
@@ -76,7 +75,7 @@ useEffect(() => {
           <Link
             className="page-link"
             to={`/${
-             count
+             parseInt(count / props.pageItems)
             }`}
           >
             Last page

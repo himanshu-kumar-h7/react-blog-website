@@ -7,6 +7,7 @@ import Pagination from '../../components/Pagination/Pagination'
 import Footer from '../../components/Footer/Footer'
 import NavigationBar from '../../components/NavBar/NavigationBar'
 import db from '../../utils/db.json'
+// import Usercontext from '../../Context/Context'
 
 
 const initialUsers = {
@@ -14,6 +15,7 @@ const initialUsers = {
   users: [],
   error: '',
   pageNo: 1,
+  pageItems: 18
 }
 
 const reducer = (state, action) => {
@@ -41,8 +43,8 @@ function Body({match}) {
   const [state, dispatchState] = useReducer(reducer, initialUsers)
 
   useEffect(() => {
-    let startIndex = ((match.params.pageNo || 1) - 1) * 18
-    const data = db.authors.slice(startIndex, startIndex + 18)
+    let startIndex = ((match.params.pageNo || 1) - 1) * initialUsers.pageItems
+    const data = db.authors.slice(startIndex, startIndex + initialUsers.pageItems)
     dispatchState({
       type: 'FETCH_SUCCESS',
       payload: data,
@@ -86,7 +88,7 @@ function Body({match}) {
             )
           })}
         </Row>
-        <Pagination page="/" pageNo={state.pageNo} />
+        <Pagination page="/" pageNo={state.pageNo} pageItems={initialUsers.pageItems}/>
       </Container>
     </div>
   )
