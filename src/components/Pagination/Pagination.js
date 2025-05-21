@@ -6,18 +6,24 @@ import { useEffect } from 'react'
 function Pagination(props) {
 
 
-const [count, setCount] = useState(0)
+const [count, setCount] = useState([])
+const [number, setNumber] = useState(0)
 
-// useEffect( () => {
+useEffect(() => {
+  setCount(db.authors.length)
   
-//   const data = db.authors.id;
-//   console.log(data)
-  
-  
-  
+},[])
 
-// },[])
+useEffect(() => {
+console.log("Count.length ", count.length)
+},[count])
 
+useEffect(() => {
+  setNumber(count)
+})
+useEffect(() => {
+  console.log("Number is " + count)
+})
   return (
     <nav aria-label="Page navigation example">
       <ul className="pagination justify-content-center pagination-lg p-4">
@@ -29,7 +35,7 @@ const [count, setCount] = useState(0)
               1
             }`}
           >
-            Reset to min
+            First Page
           </Link>
           
         </li>
@@ -70,10 +76,10 @@ const [count, setCount] = useState(0)
           <Link
             className="page-link"
             to={`/${
-             9
+             count
             }`}
           >
-            {}
+            Last page
           </Link>
           
         </li>
